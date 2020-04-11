@@ -1,11 +1,12 @@
 
 # Galaxy-Azure
-C# library for useful extensions on Azure Services.
+C# library for useful extensions on Azure Services. 
 
 ##  Features
 
  - Fluent usage retry policy for que triggered Azure functions.
- - Dependency injection support for globally configurated policy
+ - Dependency injection support for globally configurated policy.
+ - v3 Azure Functions supported.
 
  ##  Samples
  
