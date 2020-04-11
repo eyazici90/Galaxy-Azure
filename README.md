@@ -73,8 +73,7 @@ C# library for useful extensions on Azure Services.
                 string lockToken,
                 [ServiceBus(".", EntityType.Topic, Connection = "ServiceBusConnectionString")] MessageSender sender,
                 ILogger log) =>
-               await _serviceBusPolicy
-                   .ExecuteAsync(message,
+               await _serviceBusPolicy.ExecuteAsync(message,
                    messageReceiver,
                    sender,
                    lockToken,
