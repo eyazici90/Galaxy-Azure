@@ -18,10 +18,10 @@ namespace Galaxy.Azure.Examples.ServiceBus
 
         [FunctionName("ExponentialRetryDI")]
         public async Task Run(
-            [ServiceBusTrigger("alteration-integration", "test", Connection = "ServiceBusConnectionString")]Message message,
+            [ServiceBusTrigger(".", ".", Connection = "ServiceBusConnectionString")]Message message,
             MessageReceiver messageReceiver,
             string lockToken,
-            [ServiceBus("alteration-integration", EntityType.Topic, Connection = "ServiceBusConnectionString")] MessageSender sender,
+            [ServiceBus(".", EntityType.Topic, Connection = "ServiceBusConnectionString")] MessageSender sender,
             ILogger log) =>
            await _serviceBusPolicy
                .ExecuteAsync(message,
@@ -31,7 +31,7 @@ namespace Galaxy.Azure.Examples.ServiceBus
                async () =>
                {
                    // ur code
-                   log.LogWarning("Di func executed succesfully"); 
+                   log.LogWarning("DI func executed succesfully"); 
                  //  throw new System.Exception();
                });
     }

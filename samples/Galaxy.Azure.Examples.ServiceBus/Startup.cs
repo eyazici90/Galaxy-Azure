@@ -1,4 +1,5 @@
-﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+﻿using Galaxy.Azure.ServiceBus.Extensions.Retry;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: FunctionsStartup(typeof(Galaxy.Azure.Examples.ServiceBus.Startup))]
@@ -15,15 +16,15 @@ namespace Galaxy.Azure.Examples.ServiceBus
             services.AddServiceBusRetryPolicy(builder => builder
                .WithRetryCount(2)
                .WithInterval(20)
-               .With(onException: async _ =>
+               .OnException(async _ =>
                {
                    // onEx
                })
-               .With(onScheduling: async (_, __) =>
+               .OnScheduling(async (_, __) =>
                {
                    // onScheduling
                })
-               .With(onDeadLettering: async _ =>
+               .OnDeadLettering(async _ =>
                {
                    // onDeadlettering
                }));

@@ -3,6 +3,6 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-    "ServiceBusConnectionString": "Endpoint=sb://Galaxy-dev-bus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=TQdRe6aUVr92xX/C2yEVEwmCn0p6b/biS1ciyoB3RZQ="
+    "ServiceBusConnectionString": "."
   }
 }

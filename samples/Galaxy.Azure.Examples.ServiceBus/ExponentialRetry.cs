@@ -12,10 +12,10 @@ namespace Galaxy.Azure.Examples.ServiceBus
     {
         [FunctionName("ExponentialRetry")]
         public static async Task Run(
-            [ServiceBusTrigger("alteration-integration", "alteration-set-finished", Connection = "ServiceBusConnectionString")]Message message,
+            [ServiceBusTrigger(".", ".", Connection = "ServiceBusConnectionString")]Message message,
             MessageReceiver messageReceiver, 
             string lockToken,
-            [ServiceBus("alteration-integration", EntityType.Topic, Connection = "ServiceBusConnectionString")] MessageSender sender,
+            [ServiceBus(".", EntityType.Topic, Connection = "ServiceBusConnectionString")] MessageSender sender,
             ILogger log) =>
 
             await ServiceBusPolicy.Apply()
