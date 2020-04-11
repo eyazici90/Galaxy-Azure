@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E9B46C77-2818-4DDA-AEB6-D3C26D46D174}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EE70F81C-5F2F-4746-8BF4-83B01490E68B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Galaxy.Azure.ServiceBus.Extensions.Tests", "test\Galaxy.Azure.ServiceBus.Extensions.Tests\Galaxy.Azure.ServiceBus.Extensions.Tests.csproj", "{A0065665-110F-4CC9-8153-A063260E3C55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Galaxy.Azure.ServiceBus.Extensions", "src\Galaxy.Azure.ServiceBus.Extensions\Galaxy.Azure.ServiceBus.Extensions.csproj", "{3A37CF3E-F47D-40CF-B38B-A556613AF57B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{5B87AACD-B8FC-456B-9C20-15BC129751BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaxy.Azure.Examples.ServiceBus", "samples\Galaxy.Azure.Examples.ServiceBus\Galaxy.Azure.Examples.ServiceBus.csproj", "{E43EAA03-ED07-4E55-827C-0EA50621B68D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0065665-110F-4CC9-8153-A063260E3C55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0065665-110F-4CC9-8153-A063260E3C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0065665-110F-4CC9-8153-A063260E3C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0065665-110F-4CC9-8153-A063260E3C55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A37CF3E-F47D-40CF-B38B-A556613AF57B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A37CF3E-F47D-40CF-B38B-A556613AF57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A37CF3E-F47D-40CF-B38B-A556613AF57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A37CF3E-F47D-40CF-B38B-A556613AF57B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E43EAA03-ED07-4E55-827C-0EA50621B68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E43EAA03-ED07-4E55-827C-0EA50621B68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E43EAA03-ED07-4E55-827C-0EA50621B68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E43EAA03-ED07-4E55-827C-0EA50621B68D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A0065665-110F-4CC9-8153-A063260E3C55} = {EE70F81C-5F2F-4746-8BF4-83B01490E68B}
+		{3A37CF3E-F47D-40CF-B38B-A556613AF57B} = {E9B46C77-2818-4DDA-AEB6-D3C26D46D174}
+		{E43EAA03-ED07-4E55-827C-0EA50621B68D} = {5B87AACD-B8FC-456B-9C20-15BC129751BC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F1FA5C3-C204-4DE3-9427-F79EAA69C842}
+	EndGlobalSection
+EndGlobal
