@@ -1,7 +1,7 @@
 ﻿
 namespace Galaxy.Azure.ServiceBus.Extensions.Retry
 {
-    public class ServiceBusRetryConsts
+    public static class ServiceBusRetryConsts
     {
         public const string RETRY_COUNT = "retry-count";
         public const string SEQUENCENUMBER = "original-SequenceNumber";

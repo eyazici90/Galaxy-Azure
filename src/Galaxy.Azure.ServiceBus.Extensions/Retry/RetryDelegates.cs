@@ -11,7 +11,6 @@ namespace Galaxy.Azure.ServiceBus.Extensions.Retry
         public delegate Task OnScheduling(Exception ex, DateTimeOffset dateTimeOffset);
         public delegate Task OnDeadLettering(Exception ex);
 
-        public static Func<Task> DoNothing = async () => { };
-        public static Func<Exception, Task> DoNothingEx = async _ => { };
+        public static Func<Task> DoNothing { get; } = async () => await Task.CompletedTask; 
     }
 }

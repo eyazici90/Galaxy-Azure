@@ -12,8 +12,8 @@ namespace Galaxy.Azure.Examples.ServiceBus
     {
         [FunctionName("ExponentialRetry")]
         public static async Task Run(
-            [ServiceBusTrigger(".", ".", Connection = "ServiceBusConnectionString")]Message message,
-            MessageReceiver messageReceiver, 
+            [ServiceBusTrigger(".", ".", Connection = "ServiceBusConnectionString")] Message message,
+            MessageReceiver messageReceiver,
             string lockToken,
             [ServiceBus(".", EntityType.Topic, Connection = "ServiceBusConnectionString")] MessageSender sender,
             ILogger log) =>
@@ -30,7 +30,7 @@ namespace Galaxy.Azure.Examples.ServiceBus
                 .ExecuteAsync(async () =>
                 {
                     // ur code
-                    throw new System.Exception();
+                    throw new System.InvalidOperationException();
                 });
     }
 }
