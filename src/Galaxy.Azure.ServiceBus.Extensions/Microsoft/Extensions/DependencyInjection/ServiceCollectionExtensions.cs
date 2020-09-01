@@ -20,5 +20,24 @@ namespace  Microsoft.Extensions.DependencyInjection
 
             return services;
         }
+
+        public static IServiceCollection AddServiceBusRetryPolicy(this IServiceCollection services,
+         Action<IServiceProvider, ServiceBusRetryWrapperBuilder> builder)
+        {
+            services.AddSingleton<IServiceBusRetryHandler>(_ => ServiceBusRetryHandler.Instance);
+
+            services.AddSingleton(p =>
+            {
+                var serviceBusBuilder = ServiceBusRetryWrapperBuilder.New();
+
+                builder(p, serviceBusBuilder);
+
+                return serviceBusBuilder;
+            });
+
+            services.AddSingleton<IServiceBusPolicy, ServiceBusPolicy>();
+
+            return services;
+        }
     }
 }

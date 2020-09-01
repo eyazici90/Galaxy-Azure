@@ -13,7 +13,7 @@ namespace Galaxy.Azure.Examples.ServiceBus
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddServiceBusRetryPolicy(builder => builder
+            services.AddServiceBusRetryPolicy((provider, builder) => builder
                .WithRetryCount(2)
                .WithInterval(20)
                .OnException(async _ =>
