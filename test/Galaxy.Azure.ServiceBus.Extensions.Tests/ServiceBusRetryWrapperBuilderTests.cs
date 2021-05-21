@@ -16,7 +16,7 @@ namespace Galaxy.Azure.ServiceBus.Extensions.Tests
         {
             var sut = _sut();
 
-            RetryDelegates.Execution ex = async () => await RetryDelegates.DoNothing();
+            Delegates.Execution ex = async () => await Delegates.DoNothing();
 
             sut.With(execution: ex);
 
@@ -30,7 +30,7 @@ namespace Galaxy.Azure.ServiceBus.Extensions.Tests
         {
             var sut = _sut();
 
-            RetryDelegates.OnException ex = async _ => await RetryDelegates.DoNothing();
+            Delegates.OnException ex = async _ => await Delegates.DoNothing();
 
             sut.With(onException: ex);
 
@@ -44,7 +44,7 @@ namespace Galaxy.Azure.ServiceBus.Extensions.Tests
         {
             var sut = _sut();
 
-            RetryDelegates.OnScheduling ex = async (_, __) => await RetryDelegates.DoNothing();
+            Delegates.OnScheduling ex = async (_, __) => await Delegates.DoNothing();
 
             sut.With(onScheduling: ex);
 
@@ -58,7 +58,7 @@ namespace Galaxy.Azure.ServiceBus.Extensions.Tests
         {
             var sut = _sut();
 
-            RetryDelegates.OnDeadLettering ex = async _ => await RetryDelegates.DoNothing();
+            Delegates.OnDeadLettering ex = async _ => await Delegates.DoNothing();
 
             sut.With(onDeadLettering: ex);
 

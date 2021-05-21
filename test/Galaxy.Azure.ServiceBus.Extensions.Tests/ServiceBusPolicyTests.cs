@@ -33,7 +33,7 @@ namespace Galaxy.Azure.ServiceBus.Extensions.Tests
                 .OnDeadLettering(async _ => { })
                 .OnException(async _ => exCount++)
                 .OnScheduling(async (_, __) => { })
-                .ExecuteAsync(async () => await RetryDelegates.DoNothing());
+                .ExecuteAsync(async () => await Delegates.DoNothing());
 
             exCount.Should().Be(0);
         }

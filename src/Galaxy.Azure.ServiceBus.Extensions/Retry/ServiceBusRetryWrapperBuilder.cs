@@ -1,7 +1,7 @@
 ﻿using Microsoft.Azure.ServiceBus;
 using Microsoft.Azure.ServiceBus.Core;
 using System;
-using static Galaxy.Azure.ServiceBus.Extensions.Retry.RetryDelegates;
+using static Galaxy.Azure.ServiceBus.Extensions.Retry.Delegates;
 
 namespace Galaxy.Azure.ServiceBus.Extensions.Retry
 {

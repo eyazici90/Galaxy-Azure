@@ -7,15 +7,15 @@ namespace Galaxy.Azure.ServiceBus.Extensions.Retry
     {
         public static ServiceBusRetryWrapperBuilder OnException(this ServiceBusRetryWrapperBuilder serviceBusRetryWrapperBuilder,
               Func<Exception, Task> exFunc) =>
-            serviceBusRetryWrapperBuilder.With(onException: new RetryDelegates.OnException(exFunc));
+            serviceBusRetryWrapperBuilder.With(onException: new Delegates.OnException(exFunc));
 
         public static ServiceBusRetryWrapperBuilder OnScheduling(this ServiceBusRetryWrapperBuilder serviceBusRetryWrapperBuilder,
               Func<Exception, DateTimeOffset, Task> schedulingFunc) =>
-            serviceBusRetryWrapperBuilder.With(onScheduling: new RetryDelegates.OnScheduling(schedulingFunc));
+            serviceBusRetryWrapperBuilder.With(onScheduling: new Delegates.OnScheduling(schedulingFunc));
 
         public static ServiceBusRetryWrapperBuilder OnDeadLettering(this ServiceBusRetryWrapperBuilder serviceBusRetryWrapperBuilder,
               Func<Exception, Task> deadletteringFunc) =>
-            serviceBusRetryWrapperBuilder.With(onDeadLettering: new RetryDelegates.OnDeadLettering(deadletteringFunc));
+            serviceBusRetryWrapperBuilder.With(onDeadLettering: new Delegates.OnDeadLettering(deadletteringFunc));
 
         public static ServiceBusRetryWrapperBuilder RetryCount(this ServiceBusRetryWrapperBuilder serviceBusRetryWrapperBuilder,
             int retryCount) =>
@@ -32,7 +32,7 @@ namespace Galaxy.Azure.ServiceBus.Extensions.Retry
         {
             var handler = ServiceBusRetryHandler.Instance;
 
-            serviceBusRetryWrapperBuilder.With(execution: new RetryDelegates.Execution(execution));
+            serviceBusRetryWrapperBuilder.With(execution: new Delegates.Execution(execution));
 
             var wrapper = serviceBusRetryWrapperBuilder.Build();
 

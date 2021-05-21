@@ -1,43 +1,31 @@
 ﻿using Galaxy.Azure.ServiceBus.Extensions.Retry;
 using System;
+using static Galaxy.Azure.ServiceBus.Extensions.Retry.Delegates;
 
 namespace  Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddServiceBusRetryPolicy(this IServiceCollection services,
-            Action<ServiceBusRetryWrapperBuilder> builder)
+             ConfigureBuilder builder)
         {
             services.AddSingleton<IServiceBusRetryHandler>(_ => ServiceBusRetryHandler.Instance);
 
-            var serviceBusBuilder = ServiceBusRetryWrapperBuilder.New();
-
-            builder(serviceBusBuilder);
-
-            services.AddSingleton(serviceBusBuilder);
-
             services.AddSingleton<IServiceBusPolicy, ServiceBusPolicy>();
-
+            services.AddTransient(_ => builder);
             return services;
         }
 
         public static IServiceCollection AddServiceBusRetryPolicy(this IServiceCollection services,
-         Action<IServiceProvider, ServiceBusRetryWrapperBuilder> builder)
+            Action<IServiceProvider, ServiceBusRetryWrapperBuilder> builderFunc)
         {
             services.AddSingleton<IServiceBusRetryHandler>(_ => ServiceBusRetryHandler.Instance);
 
-            services.AddSingleton(p =>
-            {
-                var serviceBusBuilder = ServiceBusRetryWrapperBuilder.New();
-
-                builder(p, serviceBusBuilder);
-
-                return serviceBusBuilder;
-            });
-
+            services.AddTransient(p => new ConfigureBuilder(b => builderFunc(p, b)));
             services.AddSingleton<IServiceBusPolicy, ServiceBusPolicy>();
 
             return services;
         }
+
     }
 }

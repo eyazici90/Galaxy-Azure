@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using static Galaxy.Azure.ServiceBus.Extensions.Retry.RetryDelegates;
+using static Galaxy.Azure.ServiceBus.Extensions.Retry.Delegates;
 
 namespace Galaxy.Azure.ServiceBus.Extensions.Retry
 {
@@ -19,12 +19,9 @@ namespace Galaxy.Azure.ServiceBus.Extensions.Retry
             {
                 await execution().ConfigureAwait(false);
             }
-            catch (TException ex)
+            catch (TException ex) when (when(ex))
             {
-                if (when(ex))
-                    await @catch(ex).ConfigureAwait(false);
-                else
-                    throw;
+                await @catch(ex).ConfigureAwait(false);
             }
         }
     }
